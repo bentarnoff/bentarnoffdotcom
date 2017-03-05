@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block metadata %}
+	<meta name="description" content="Internet home of Ben Tarnoff.">
+	<link rel="canonical" href="http://www.bentarnoff.com" />
+	<title>ben tarnoff</title>
+	{% endblock %}
+	<link rel="icon" href="{% static "images/favicon.ico" %}" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+</head>
+<body>
+<div class="page">
+<div class="wrapper">
+<div class="sidebar" id="sidebar-nav">
+<img src="{% static "images/portrait.png" %}" width="250"/>
+<h1><a href="/">ben tarnoff</a><br/></h1>
+technology, politics, history
+<br><br>
+<ul>
+<li><h2><a class="btn btn-default" href="/projects/">projects</a></h2></li>
+<li><h2><a class="btn btn-default" href="/books/">books</a></h2></li>
+<li><h2><a class="btn btn-default" href="/articles/">articles</a></h2></li>
+<li><h2><a class="btn btn-default" href="/interviews/">interviews</a></h2></li>
+<br><br>
+<li>ben@bentarnoff.com</li>
+<li><a href="http://twitter.com/@bentarnoff" target="_blank">@bentarnoff</a></li>
+<li><a href="http://github.com/bentarnoff" target="_blank">github</a></li>
+<li><a href="https://keybase.io/bentarnoff" target="_blank">keybase</a></li>
+</ul>
+</div>
+<div class="sidebar-mobile">
+<h1><a href="/">ben tarnoff</a><br/></h1>
+<p><h2><a class="btn btn-default" href="/projects/">projects</a></h2> 
+<h2><a class="btn btn-default" href="/books/">books</a></h2></p>
+<p><h2><a class="btn btn-default" href="/articles/">articles</a></h2>
+<h2><a class="btn btn-default" href="/interviews/">interviews</a></h2></p>
+ben@bentarnoff.com / <a href="http://twitter.com/@bentarnoff" target="_blank">@bentarnoff</a> / <a href="http://github.com/bentarnoff" target="_blank">github</a>
+</div>
+{% block content %}
+<div class="content-wrapper">
+<div class="content-inner">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12" id="content">
+<strong>Subscribe</strong> to my mailing list and you'll get an email whenever I post something. 
+<div id="mc_embed_signup">
+<form action="//bentarnoff.us2.list-manage.com/subscribe/post?u=63b708975a260be876cb955ef&amp;id=6590e3de76" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="enter your email address"> and <strong>hit return</strong>.
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>   
+</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+</div>
+{% for i in posts %}
+<div class="row">
+<div class="col-xs-12" id="content">
+<h1> <a href="{{i.get_absolute_url}}">{{i.title}}</a></h1>
+{% if i.image_url != '' %}
+<img class="blogimg" src="{% static i.image_url %}"/>
+<p><em>{{i.caption | safe}}</em></p>
+{% endif %}
+{{i.post | safe}}
+<p><a href="{{i.get_absolute_url}}">[permalink]</a></p>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadata %}
+<meta name="description" content="A bunch of projects by Ben Tarnoff, including a movie, some web apps, and a Twitter bot.">
+<link rel="canonical" href="http://www.bentarnoff.com/projects/" />
+<title>ben tarnoff: projects</title>
+{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+<div class="content-inner">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12" id="content">
+<h1>projects</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>Quitters</h3>
+<img src="{% static "images/quitters.jpg" %}" class="blogimg">
+<p>I co-wrote and executive produced a movie called <em><a href="http://www.imdb.com/title/tt3018528/" target="_blank">Quitters</em></a>, starring Mira Sorvino, Greg Germann, and Ben Konigsberg. It's about teenagers in San Francisco hurting each other's feelings! And growing, of course.</p>
+<p>Read the reviews in <a href="http://www.nytimes.com/2016/07/22/movies/quitters-review.html" target="_blank">The New York Times</a> and <a href="http://www.latimes.com/entertainment/movies/la-et-mn-mini-quitters-review-20160718-snap-story.html">The Los Angeles Times</a>, and watch it on <a href="https://itunes.apple.com/us/movie/quitters/id1121384015" target="_blank">iTunes</a> or <a href="https://www.amazon.com/Quitters-Mira-Sorvino/dp/B01IS51LY2">Amazon</a>.
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>Clustrs</h3>
+<img src="{% static "images/clustrs.jpg" %}" class="blogimg">
+<p>I made a prototype for a crowd-sourced content aggregator called Clustrs, motivated by my never-ending hunt for good things to read/watch on the Internet. I go into a lot more detail on the how/what/why on the <a href="https://github.com/bentarnoff/clustrs">Github readme</a>.</p>
+<p>You can see Clustrs live at <a href="http://clustrs.cfapps.io/">clustrs.cfapps.io</a>.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>@oldgoldmtn</h3>
+<img src="{% static "images/marketstreet.jpg" %}" class="blogimg">
+<p><em>Market Street, San Francisco, 1885.</em></p>
+<p>I wrote a Twitter bot in Python that pulls random images from the San Francisco Public Library's extraordinary <a href="http://sfpl.org/index.php?pg=0200000301" target="_blank">Historical Photograph Collection</a> and tweets them.</p><p>Follow the bot <a href="http://www.twitter.com/@oldgoldmtn" target="_blank">@oldgoldmtn</a>, or see my sloppy code at <a href="https://github.com/bentarnoff/oldgoldmtn" target="_blank">Github</a>.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>Flybot</h3>
+<img src="{% static "images/flybot.jpg" %}" class="blogimg">
+<p>Ever find yourself on the way to the airport with no idea what terminal you're flying out of? This happens to me all the time, so I made a terminal lookup tool. You plug in the airport and your airline, and it tells you your departure terminal.</p>
+<p>Most of the work involved scraping the terminal info from various sites with Python using Selenium Webdriver and populating a monster Postgres database. The site itself was built in Django. Still squashing bugs, but it works.</p>
+<p>Check it out at <a href="https://flybot-termsearch.herokuapp.com" target="_blank">https://flybot-termsearch.herokuapp.com</a>.
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>leftreader.org</h3>
+<img src="{% static "images/leftreader.jpg" %}" class="blogimg">
+<p>I keep so many tabs open in Chrome that it routinely crashes, so this site is a small step towards making my life more organized. It's an aggregator that pulls the five most recent articles from the RSS feeds of a bunch of different left-wing papers/magazines/blogs.</p>
+<p>I've got a script running every hour that checks the feeds for new entries, pulls them, cleans them up (the feeds are generally pretty ugly), and throws them into a database for the site to find. Built in Django.</p>
+<p>Visit <a href="https://leftreader.herokuapp.com/" target="_blank">https://leftreader.herokuapp.com/</a>. 
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>rojava</h3>
+<img src="{% static "images/rojava.jpg" %}" class="blogimg">
+<p>Inspired by a talk I went to at the New School about <a href="https://en.wikipedia.org/wiki/Rojava" target="_blank">Rojava</a>, I made a site about the democratic experiment that's happening there. It's a little sparse right now, but I'm planning to build it out.</p>
+<p>Take a look: <a href="https://whatisrojava.herokuapp.com" target="_blank">What is Rojava?</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+{% endblock %}

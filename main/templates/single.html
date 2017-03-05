@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadata %}
+<link rel="canonical" href="http://www.bentarnoff.com/{{post.get_absolute_url}}" />
+<meta name="description" content="Ben Tarnoff: {{post.title}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bentarnoff" />
+<meta name="twitter:creator" content="@bentarnoff" />
+<meta property="og:url" content="http://www.bentarnoff.com/{{post.get_absolute_url}}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="{{post.title}}"/>
+<meta property="og:description" content="{{post.description}}" />
+<meta property="og:image" content="{% static post.image_url %}"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="bentarnoff.com"/>
+<title>ben tarnoff: {{post.title}}</title>
+{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+<div class="content-inner">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12" id="content">
+<strong>Subscribe</strong> to my mailing list and you'll get an email whenever I post something. 
+<div id="mc_embed_signup">
+<form action="//bentarnoff.us2.list-manage.com/subscribe/post?u=63b708975a260be876cb955ef&amp;id=6590e3de76" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="enter your email address"> and <strong>hit return</strong>.
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>   
+</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h1> <a href="{{post.get_absolute_url}}">{{post.title}}</a></h1>
+{% if post.image_url != '' %}
+<img class="blogimg" src="{% static post.image_url %}"/>
+<p><em>{{post.caption | safe}}</em></p>
+{% endif %}
+{{post.post | safe}}
+<p><a href="{{post.get_absolute_url}}">[permalink]</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+{% endblock %}

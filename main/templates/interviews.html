@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadata %}
+<meta name="description" content="Watch, read, and listen Ben Tarnoff getting interviewed on radio, TV, and the Internet.">
+<link rel="canonical" href="http://www.bentarnoff.com/interviews/" />
+<title>ben tarnoff: interviews</title>
+{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+<div class="content-inner">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12" id="content">
+<h1>interviews</h1><br/>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>video</h3>
+<ul>
+<p>{% for i in interviews_video %}
+<li><a href="{{i.link}}" target="_blank"><img src="{% static i.img_url %}" class="interviewimg"><p>{{ i.title }}</a>, <em>{{i.where}}</em>, {{i.pub_date}}.</li>
+</p>
+{% endfor %}
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>audio</h3>
+<p>{% for i in interviews_audio %}
+	<li><a href="{{i.link}}"><p>{{ i.title }}</a>, <em>{{i.where}}</em>, {{i.pub_date}}.</li>
+</p>
+{% endfor %}
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12" id="content">
+<h3>text</h3>
+{% for i in interviews_text %}
+<p><li><a href="{{i.link}}"><p>{{ i.title }}</a>, <em>{{i.where}}</em>, {{i.pub_date}}.</li>
+</p>
+{% endfor %}
+</div>
+</div>
+</div>
+</body>
+{% endblock %}
